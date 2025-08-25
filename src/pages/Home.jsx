@@ -168,124 +168,115 @@ const Home = () => {
         )}
 
         {/* Enhanced Apply Dialog - Fixed z-index and size */}
-        <Dialog 
-          open={openApplyDialog} 
-          onClose={() => setOpenApplyDialog(false)} 
-          maxWidth="sm" 
-          fullWidth
-          sx={{
-            '& .MuiDialog-container': {
-              alignItems: 'flex-start',
-              marginTop: '80px'
-            },
-            '& .MuiPaper-root': {
-              margin: '0',
-              maxHeight: '80vh'
-            }
-          }}
-          PaperProps={{
-            style: {
-              borderRadius: '16px',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-            }
-          }}
+      <Dialog
+  open={openApplyDialog}
+  onClose={() => setOpenApplyDialog(false)}
+  maxWidth="sm"
+  fullWidth
+  sx={{
+    '& .MuiDialog-container': {
+      alignItems: 'flex-start',
+      marginTop: '20px', // Reduced from 80px
+    },
+    '& .MuiPaper-root': {
+      margin: '0',
+      maxHeight: '70vh', // Reduced from 80vh
+      borderRadius: '12px',
+      boxShadow: '0 10px 30px rgba(0,0,0,0.12)',
+    }
+  }}
+>
+  <div className="relative">
+    {/* Header with improved gradient */}
+    <div className="bg-gradient-to-r from-blue-700 to-indigo-800 p-4 text-white"> {/* Reduced padding */}
+      <div className="flex justify-between items-start">
+        <div className="pr-4">
+          <DialogTitle className="text-white p-0 text-lg font-bold"> {/* Smaller text */}
+            {selectedJob?.jobTitle}
+          </DialogTitle>
+          <p className="text-blue-100 text-xs font-medium mt-1">{selectedJob?.companyName}</p> {/* Smaller text */}
+        </div>
+        <IconButton 
+          onClick={() => setOpenApplyDialog(false)} 
+          className="text-white hover:bg-white/10 transition-colors"
+          size="small"
+          sx={{ borderRadius: '6px' }}
         >
-          <div className="relative">
-            {/* Header with gradient background */}
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-4 text-white rounded-t-lg">
-              <div className="flex justify-between items-start">
-                <div className="pr-4">
-                  <DialogTitle className="text-white p-0 text-xl font-bold">
-                    {selectedJob?.jobTitle}
-                  </DialogTitle>
-                  <p className="text-blue-100 text-md font-medium mt-1">{selectedJob?.companyName}</p>
-                </div>
-                <IconButton 
-                  onClick={() => setOpenApplyDialog(false)} 
-                  className="text-white hover:bg-blue-700"
-                  size="small"
-                >
-                  <FiX className="text-lg" />
-                </IconButton>
-              </div>
-              
-              <div className="flex flex-wrap gap-2 mt-3">
-                <Chip 
-                  icon={<FiMapPin className="text-blue-300 text-xs" />} 
-                  label={selectedJob?.location} 
-                  size="small" 
-                  className="bg-blue-500 text-white text-xs h-6"
-                />
-                <Chip 
-                  icon={<FiDollarSign className="text-blue-300 text-xs" />} 
-                  label={selectedJob?.salary} 
-                  size="small" 
-                  className="bg-blue-500 text-white text-xs h-6"
-                />
-                <Chip 
-                  icon={<FiAward className="text-blue-300 text-xs" />} 
-                  label={selectedJob?.experience} 
-                  size="small" 
-                  className="bg-blue-500 text-white text-xs h-6"
-                />
-              </div>
-            </div>
+          <FiX className="text-md" /> {/* Smaller icon */}
+        </IconButton>
+      </div>
+      
+      <div className="flex flex-wrap gap-2 mt-3"> {/* Reduced margin */}
+        <div className="bg-white/15 px-2 py-1 rounded text-xs flex items-center"> {/* Smaller padding */}
+          <FiMapPin className="mr-1 text-blue-200" />
+          <span>{selectedJob?.location}</span>
+        </div>
+        <div className="bg-white/15 px-2 py-1 rounded text-xs flex items-center">
+          <FiDollarSign className="mr-1 text-blue-200" />
+          <span>{selectedJob?.salary}</span>
+        </div>
+        <div className="bg-white/15 px-2 py-1 rounded text-xs flex items-center">
+          <FiAward className="mr-1 text-blue-200" />
+          <span>{selectedJob?.experience}</span>
+        </div>
+      </div>
+    </div>
 
-            <DialogContent dividers className="p-4">
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-md font-semibold text-gray-800 mb-2 flex items-center">
-                    <FiBook className="mr-2 text-blue-500 text-sm" />
-                    Qualification Required
-                  </h3>
-                  <p className="text-gray-700 bg-blue-50 p-2 rounded-lg text-sm">{selectedJob?.qualification}</p>
-                </div>
+    <DialogContent dividers className="p-4"> {/* Reduced padding */}
+      <div className="space-y-4"> {/* Reduced spacing */}
+        <div>
+          <h3 className="text-xs font-semibold text-gray-700 mb-2 flex items-center uppercase tracking-wide"> {/* Smaller text */}
+            <FiBook className="mr-2 text-blue-600 text-xs" /> {/* Smaller icon */}
+            Qualification Required
+          </h3>
+          <p className="text-gray-600 bg-blue-50 p-2 rounded text-sm border border-blue-100"> {/* Reduced padding */}
+            {selectedJob?.qualification}
+          </p>
+        </div>
 
-                <div>
-                  <h3 className="text-md font-semibold text-gray-800 mb-2 flex items-center">
-                    <FiBriefcase className="mr-2 text-blue-500 text-sm" />
-                    Job Description
-                  </h3>
-                  <p className="text-gray-700 bg-gray-50 p-2 rounded-lg text-sm">{selectedJob?.description}</p>
-                </div>
+        <div>
+          <h3 className="text-xs font-semibold text-gray-700 mb-2 flex items-center uppercase tracking-wide">
+            <FiBriefcase className="mr-2 text-blue-600 text-xs" />
+            Job Description
+          </h3>
+          <p className="text-gray-600 bg-gray-50 p-2 rounded text-sm border border-gray-200">
+            {selectedJob?.description}
+          </p>
+        </div>
 
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded-r">
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <FiClock className="h-4 w-4 text-yellow-400 mt-0.5" />
-                    </div>
-                    <div className="ml-2">
-                      <p className="text-xs text-yellow-700">
-                        Apply soon! This position may fill up quickly.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </DialogContent>
-
-            <DialogActions className="p-4 flex justify-between border-t">
-              <Button 
-                onClick={() => setOpenApplyDialog(false)} 
-                variant="outlined" 
-                className="border-gray-300 text-gray-600 hover:bg-gray-50 text-sm"
-                startIcon={<FiX />}
-                size="small"
-              >
-                Cancel
-              </Button>
-              <Button 
-                onClick={handleApply} 
-                variant="contained" 
-                className="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 shadow-md text-sm"
-                startIcon={<FiCheckCircle />}
-                size="small"
-              >
-                Apply Now
-              </Button>
-            </DialogActions>
+        <div className="bg-blue-50 border border-blue-100 p-2 rounded"> {/* Reduced padding */}
+          <div className="flex items-start">
+            <FiClock className="h-3 w-3 text-blue-500 mt-0.5 mr-2 flex-shrink-0" /> {/* Smaller icon */}
+            <p className="text-xs text-blue-700">
+              Apply soon! This position may fill up quickly.
+            </p>
           </div>
-        </Dialog>
+        </div>
+      </div>
+    </DialogContent>
+
+    <DialogActions className="p-3 flex justify-end gap-2 border-t"> {/* Reduced padding and gap */}
+      <Button 
+        onClick={() => setOpenApplyDialog(false)} 
+        variant="outlined" 
+        className="text-gray-600 hover:bg-gray-50 text-xs px-3 py-1 rounded border-gray-300" // Smaller padding and text
+        startIcon={<FiX className="text-xs" />} // Smaller icon
+        size="small"
+      >
+        Cancel
+      </Button>
+      <Button 
+        onClick={handleApply} 
+        variant="contained" 
+        className="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-1 rounded shadow-sm" // Smaller padding and text
+        startIcon={<FiCheckCircle className="text-xs" />} // Smaller icon
+        size="small"
+      >
+        Apply Now
+      </Button>
+    </DialogActions>
+  </div>
+</Dialog>
 
         {/* Snackbar */}
         <Snackbar

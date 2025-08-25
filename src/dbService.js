@@ -50,12 +50,12 @@ export const applyForJob = async (jobId, userId) => {
     );
     const snapshot = await getDocs(q);
 
-    if (!snapshot.empty) {
-      console.log("⚠️ User has already applied for this job.");
-      return { success: false, message: "Already applied" };
-    }
+    // if (!snapshot.empty) {
+    //   console.log("⚠️ User has already applied for this job.");
+    //   return { success: false, message: "Already applied" };
+    // }
 
-    // If not applied before → add request
+    
     await addDoc(requestsCollection, {
       jobId,
       userId,

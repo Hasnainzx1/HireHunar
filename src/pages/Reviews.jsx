@@ -121,7 +121,7 @@ const Reviews = () => {
           Discover what people are saying about companies or share your own experience
         </p>
 
-        {/* Search & Add */}
+        
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-4 justify-between items-center mb-12">
           <div className="flex items-center flex-1 bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden transition-all duration-300 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500">
             <div className="px-4 text-blue-600">
