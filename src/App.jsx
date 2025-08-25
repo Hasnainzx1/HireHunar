@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Reviews from './pages/Reviews';
 import './App.css';
-import JobPost from './pages/jobPost';
+import JobPost from './pages/JobPost';
 
 // Create a component that conditionally renders the Navbar
 function NavbarConditional() {
