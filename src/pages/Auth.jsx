@@ -24,7 +24,7 @@ const Auth = () => {
             window.location.href = '/home';
           }, 1500);
         } else {
-          alert('Invalid credentials');
+          alert('Enter Correct Username & Password');
         }
       } else {
         localStorage.setItem('user', JSON.stringify({ username, password }));
@@ -38,7 +38,7 @@ const Auth = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 p-4">
       <div className="w-full max-w-6xl bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-        {/* Left Panel - Feature Description */}
+     
         <div className="w-full md:w-2/5 bg-gradient-to-br from-indigo-600/30 to-purple-600/30 p-8 flex flex-col justify-center text-white">
           <div className="mb-8">
             <h1 className="text-4xl font-bold mb-4">Welcome to Our Platform</h1>
@@ -88,7 +88,7 @@ const Auth = () => {
               "This platform has transformed how our team works together. Highly recommended!"
             </p>
             <div className="flex items-center mt-3">
-              {/* ✅ Image laga diya */}
+              
               <img
                 src="/Images/author.jpeg"
                 alt="Author"

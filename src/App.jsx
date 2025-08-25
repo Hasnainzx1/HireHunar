@@ -12,7 +12,7 @@ import JobPost from './pages/JobPost';
 function NavbarConditional() {
   const location = useLocation();
   
-  // Don't show Navbar on the Auth page
+
   if (location.pathname === '/auth') {
     return null;
   }
