@@ -7,6 +7,8 @@ import Contact from './pages/Contact';
 import Reviews from './pages/Reviews';
 import './App.css';
 import JobPost from './pages/JobPost';
+import Footer from './pages/Footer';
+import AppliedJobs from './pages/AppliedJobs';
 
 // Create a component that conditionally renders the Navbar
 function NavbarConditional() {
@@ -32,7 +34,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/job-post" element={<JobPost />} />
+         <Route path="/applied-jobs" element={<AppliedJobs />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

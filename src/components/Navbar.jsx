@@ -43,6 +43,10 @@ const Navbar = () => {
             <FiMail className="mr-2" />
             Contact
           </NavLink> */}
+          <NavLink to="/applied-jobs" className={navLinkClasses}>
+            <FiBriefcase className="mr-2" />
+            Applied Jobs
+          </NavLink>
           <NavLink to="/job-post" className={navLinkClasses}>
             <FiPlusCircle className="mr-2" />
             Post Job
@@ -93,11 +97,16 @@ const Navbar = () => {
                 <FiMail className="mr-3 ml-4" />
                 Contact
               </NavLink> */}
+               <NavLink to="/applied-jobs" className={navLinkClasses}>
+            <FiBriefcase className="mr-2" />
+            Applied Jobs
+          </NavLink>
               <NavLink 
                 to="/job-post" 
                 className={mobileNavLinkClasses}
                 onClick={() => setIsMenuOpen(false)}
               >
+                
                 <FiPlusCircle className="mr-3 ml-4" />
                 Post Job
               </NavLink>
